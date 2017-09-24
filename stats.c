@@ -52,7 +52,17 @@ void main() {
  */
 void print_statistics(unsigned char arr[], int size) {
   
+  sort_array(arr, size);
+  
   print_array(arr, size);
+  
+  printf("\n\n------------------------------------------------------------");
+  printf("\nStatistics");
+  printf("\n------------------------------------------------------------");
+  printf("\nThe median of the array is %d\n", find_median(arr,size));
+  printf("The mean of the array is %d\n", find_mean(arr,size));
+  printf("The maximum of the array is %d\n", find_maximum(arr,size));
+  printf("The minimum of the array is %d\n", find_minimum(arr,size));
 }
 
 /**
@@ -90,8 +100,8 @@ void print_array(unsigned char arr[] , int size) {
  *
  * It will find the median of the input array. If the size of 
  * array is odd, the median will the size of array divided by two. If the
- * size of array is even, the median will be size of array divided by two
- * minus one.
+ * size of array is even, the median will be the sum of the two middle elements
+ * divided by 2
  *
  * @param The Character Array whose median is to be found
  * @param The Size of the array
@@ -100,6 +110,14 @@ void print_array(unsigned char arr[] , int size) {
  */
 int find_median(unsigned char arr[], int size) {
   
+     if(size%2==0) {
+        // if there is an even number of elements, return mean of the two elements in the middle
+        return((arr[size/2] + arr[size/2 - 1]) / 2);
+    } else {
+        // else return the element in the middle
+        return arr[size/2];
+    }
+ 
 }
 
 
@@ -117,7 +135,15 @@ int find_median(unsigned char arr[], int size) {
  */
 int find_mean(unsigned char arr[], int size) {
   
+  int sum  = 0;
+  unsigned int i = 0;
   
+  for (i =0; i < size; i++){
+    
+    sum += arr[i];
+  }
+  
+  return sum/size;
 }
 
 
@@ -133,6 +159,17 @@ int find_mean(unsigned char arr[], int size) {
  * @return Element with the maximum value
  */
 int find_maximum(unsigned char arr[], int size) {
+  unsigned int maximum = 0;
+  unsigned int i = 0;
+  
+  for (i = 0; i < size; i++) {
+    if (arr[i] > maximum) {
+      maximum = arr[i];
+    }
+    
+    return maximum;
+  }
+  
   
 }
 
@@ -150,7 +187,16 @@ int find_maximum(unsigned char arr[], int size) {
  * @return Element with the minimum value
  */
 int find_minimum(unsigned char arr[], int size) {
-  
+    unsigned int i = 0;
+    unsigned int minimum = arr[i];
+
+    for(i = 0; i < size; i++){
+        if(arr[i] < minimum){
+            minimum = arr[i];
+       }
+    }
+
+   return minimum;
 }
 
 
@@ -167,7 +213,21 @@ int find_minimum(unsigned char arr[], int size) {
  * @return None
  */
 void sort_array(unsigned char arr[], int size) {
+  unsigned int i = 0;
+  unsigned int j = 0;
+  unsigned int temp;
   
+  for (i = 0; i < size - 1; i++) {
+    for (j = 0; j < size -1; j++) {
+      if (arr[j] < arr[j+1]) {
+	temp = arr[j+1];
+	arr[j+1] = arr[j];
+	arr[j] = arr[j+1];
+      }
+    }
+  }
+  
+  return;
 }
 
 

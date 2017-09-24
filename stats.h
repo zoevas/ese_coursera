@@ -24,22 +24,6 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
-
-/**
- * @brief <Add Brief Description of Function Here>
- *
- * <Add Extended Description Here>
- *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- *
- * @return <Add Return Informaiton here>
- */
-
-
 
 /**
  * @brief It prints statistics (minimum, maximum, mean , median) of an array in a nice format
@@ -75,8 +59,8 @@ void print_array(unsigned char *, int);
  *
  * It will find the median of the input array. If the size of 
  * array is odd, the median will the size of array divided by two. If the
- * size of array is even, the median will be size of array divided by two
- * minus one.
+ * size of array is even, the median will be the sum of the two middle elements
+ * divided by 2
  *
  * @param The Character Array whose median is to be found
  * @param The Size of the array
