@@ -9,13 +9,13 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c 
+ * @brief Statistics on an array
  *
- * <Add Extended Description Here>
+ * Functions provided for callculating mean, median, minimum and maximum of an array.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Vasileiou Zoe
+ * @date 24 September 2017
  *
  */
 
@@ -85,9 +85,9 @@ void print_array(unsigned char arr[] , int size) {
     
     for (i=0; i < size; i++) {
       if (i % 8 == 0) {
-	printf("\n%d ", arr[i]);
+         printf("\n%d ", arr[i]);
       } else {
-	printf("%d ", arr[i]);
+         printf("%d ", arr[i]);
       }
     }
   
@@ -110,7 +110,7 @@ void print_array(unsigned char arr[] , int size) {
  */
 int find_median(unsigned char arr[], int size) {
   
-     if(size%2==0) {
+    if(size%2==0) {
         // if there is an even number of elements, return mean of the two elements in the middle
         return((arr[size/2] + arr[size/2 - 1]) / 2);
     } else {
@@ -138,8 +138,7 @@ int find_mean(unsigned char arr[], int size) {
   int sum  = 0;
   unsigned int i = 0;
   
-  for (i =0; i < size; i++){
-    
+  for (i =0; i < size; i++) { 
     sum += arr[i];
   }
   
@@ -163,14 +162,11 @@ int find_maximum(unsigned char arr[], int size) {
   unsigned int i = 0;
   
   for (i = 0; i < size; i++) {
-    if (arr[i] > maximum) {
-      maximum = arr[i];
-    }
-    
-    return maximum;
+      if (arr[i] > maximum) {
+         maximum = arr[i];
+      }
+      return maximum;
   }
-  
-  
 }
 
 
@@ -193,10 +189,10 @@ int find_minimum(unsigned char arr[], int size) {
     for(i = 0; i < size; i++){
         if(arr[i] < minimum){
             minimum = arr[i];
-       }
+        }
     }
 
-   return minimum;
+    return minimum;
 }
 
 

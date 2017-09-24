@@ -9,7 +9,7 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
+ * @file stats.h
  * @brief Functions used by stats.c are declared here
  *
  * Contains declarations of functions that can analyze an array of unsigned char data items and report
