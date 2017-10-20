@@ -10,8 +10,25 @@
 #*****************************************************************************
 
 # Add your Source files to this variable
-SOURCES =
 
+ifeq ($(PLATFORM),HOST)
+SOURCES = main.c \
+	memory.c
+else	
+SOURCES = main.c \
+	memory.c \
+	interrupts_msp432p401r_gcc.c \
+	startup_msp432p401r_gcc.c \
+	system_msp432p401r.c
+endif
+
+
+ifeq ($(PLATFORM),HOST)
 # Add your include paths to this variable
-INCLUDES = 
+INCLUDES = -I/home/zoe/VasileiouZoe_Coursera/m2/include/common
+else
+INCLUDES = -I/home/zoe/VasileiouZoe_Coursera/m2/include/common	\
+	-I/home/zoe/VasileiouZoe_Coursera/m2/include/msp432	\
+	-I/home/zoe/VasileiouZoe_Coursera/m2/include/CMSIS
+endif
 
