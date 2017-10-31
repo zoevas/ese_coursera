@@ -13,7 +13,10 @@
 
 ifeq ($(PLATFORM),HOST)
 SOURCES = main.c \
-	memory.c
+	memory.c \
+	course1.c \
+	stats.c \
+	data.c
 else	
 SOURCES = main.c \
 	memory.c \
@@ -25,10 +28,10 @@ endif
 
 ifeq ($(PLATFORM),HOST)
 # Add your include paths to this variable
-INCLUDES = -I/home/zoe/VasileiouZoe_Coursera/m2/include/common
+INCLUDES = -I/home/zoe/VasileiouZoe_Coursera/include/common
 else
-INCLUDES = -I/home/zoe/VasileiouZoe_Coursera/m2/include/common	\
-	-I/home/zoe/VasileiouZoe_Coursera/m2/include/msp432	\
-	-I/home/zoe/VasileiouZoe_Coursera/m2/include/CMSIS
+INCLUDES = -I/home/zoe/VasileiouZoe_Coursera/include/common	\
+	-I/home/zoe/VasileiouZoe_Coursera/include/msp432	\
+	-I/home/zoe/VasileiouZoe_Coursera/include/CMSIS
 endif
 

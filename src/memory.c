@@ -48,3 +48,78 @@ void clear_all(char * ptr, unsigned int size){
   set_all(ptr, 0, size);
 }
 
+
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
+    unsigned int i = 0;
+   for (i=0; i<length; i++)
+    if (src+i==dst || dst+i==src) return NULL;
+  
+  
+    for (int i = 0; i < length; i++) {
+      *(dst+i) = *(src+i);
+    }
+  
+    return dst;
+}
+
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
+
+  if ((src + length)<= dst || src >= (dst + length)) {
+      /* No overlap, use memcpy logic (copy forward) */
+      while (length--)
+      *dst++ = *src++;
+  } else {
+    /* Overlap detected! Copy backward to fix */
+    src = src + length - 1;
+    dst = dst + length - 1;
+    while (length--)
+      *dst-- = *src--;
+  }
+  return dst;
+}
+
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value) {
+  
+  for (int i = 0; i < length; i++) {
+    *(src+i) = value;
+  }
+  return src;
+}
+
+uint8_t * my_memzero (uint8_t * src, size_t length) {
+  
+  for (int i = 0; i < length; i++) {
+    *(src+i) = 0;
+  }
+  return src;
+}
+
+
+uint8_t * my_reverse(uint8_t * src, size_t length) {
+  
+  uint8_t tmp;
+  
+  for (int i = length - 1, j = 0;i >=0 && j<length; i--) {
+    tmp = *(src + i);
+    *(src + i) = *(src + j);
+    *(src + j) = tmp; 
+  }
+  
+  return src;
+}
+
+
+int32_t * reserve_words(size_t length) {
+  
+    int32_t * src = (int32_t *) malloc(length * sizeof(int32_t));
+    
+    printf("%s\n", "reserve_words");
+    
+    return src;
+    
+}
+
+void free_words(uint32_t * src) {
+  
+  free(src);
+}

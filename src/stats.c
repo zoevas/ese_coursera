@@ -27,7 +27,7 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+/*int main() {
 
     unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
@@ -36,8 +36,8 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
     print_statistics(test, SIZE);
-    return;
-}
+    return 0;
+}*/
 
 /**
  * @brief It prints statistics (minimum, maximum, mean , median) of an array in a nice format
@@ -54,8 +54,9 @@ void print_statistics(unsigned char arr[], int size) {
   
   sort_array(arr, size);
   
+#ifdef VERBOSE
   print_array(arr, size);
-  
+#endif
   printf("\n\n------------------------------------------------------------");
   printf("\nStatistics");
   printf("\n------------------------------------------------------------");
@@ -78,7 +79,7 @@ void print_statistics(unsigned char arr[], int size) {
 void print_array(unsigned char arr[] , int size) {
    
     unsigned int i;
-    int count = 0;
+   // int count = 0;
     
     
     printf("%s", "Elements of array:");
@@ -165,8 +166,9 @@ int find_maximum(unsigned char arr[], int size) {
       if (arr[i] > maximum) {
          maximum = arr[i];
       }
-      return maximum;
   }
+  return maximum;
+  
 }
 
 
@@ -211,14 +213,13 @@ int find_minimum(unsigned char arr[], int size) {
 void sort_array(unsigned char arr[], int size) {
   unsigned int i = 0;
   unsigned int j = 0;
-  unsigned int temp;
   
   for (i = 0; i < size - 1; i++) {
     for (j = 0; j < size -1; j++) {
       if (arr[j] < arr[j+1]) {
-	temp = arr[j+1];
+	unsigned int  temp = arr[j+1];
 	arr[j+1] = arr[j];
-	arr[j] = arr[j+1];
+	arr[j] = temp;
       }
     }
   }
