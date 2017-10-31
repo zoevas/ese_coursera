@@ -171,7 +171,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  .text          0x0000000000400600       0xbd /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o
  .text          0x00000000004006bd      0x13a main.o
                 0x00000000004006bd                main
- .text          0x00000000004007f7      0x350 memory.o
+ .text          0x00000000004007f7      0x34b memory.o
                 0x00000000004007f7                set_value
                 0x0000000000400819                clear_value
                 0x0000000000400840                get_value
@@ -182,30 +182,30 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
                 0x0000000000400a02                my_memset
                 0x0000000000400a44                my_memzero
                 0x0000000000400a7e                my_reverse
-                0x0000000000400afd                reserve_words
-                0x0000000000400b2d                free_words
- .text          0x0000000000400b47      0x8bf course1.o
-                0x0000000000400b47                test_data1
-                0x0000000000400bd6                test_data2
-                0x0000000000400c65                test_memmove1
-                0x0000000000400d52                test_memmove2
-                0x0000000000400e3f                test_memmove3
-                0x0000000000400f31                test_memcopy
-                0x000000000040101e                test_memset
-                0x0000000000401142                test_reverse
-                0x00000000004012c3                course1
- .text          0x0000000000401406      0x3a1 stats.o
-                0x0000000000401406                print_statistics
-                0x00000000004014dd                print_array
-                0x0000000000401565                find_median
-                0x00000000004015e0                find_mean
-                0x000000000040162a                find_maximum
-                0x0000000000401685                find_minimum
-                0x00000000004016ec                sort_array
- .text          0x00000000004017a7      0x161 data.o
-                0x00000000004017a7                my_itoa
-                0x00000000004018f1                my_atoi
- *fill*         0x0000000000401908        0x8 
+                0x0000000000400af8                reserve_words
+                0x0000000000400b28                free_words
+ .text          0x0000000000400b42      0x8bf course1.o
+                0x0000000000400b42                test_data1
+                0x0000000000400bd1                test_data2
+                0x0000000000400c60                test_memmove1
+                0x0000000000400d4d                test_memmove2
+                0x0000000000400e3a                test_memmove3
+                0x0000000000400f2c                test_memcopy
+                0x0000000000401019                test_memset
+                0x000000000040113d                test_reverse
+                0x00000000004012be                course1
+ .text          0x0000000000401401      0x3a1 stats.o
+                0x0000000000401401                print_statistics
+                0x00000000004014d8                print_array
+                0x0000000000401560                find_median
+                0x00000000004015db                find_mean
+                0x0000000000401625                find_maximum
+                0x0000000000401680                find_minimum
+                0x00000000004016e7                sort_array
+ .text          0x00000000004017a2      0x161 data.o
+                0x00000000004017a2                my_itoa
+                0x00000000004018ec                my_atoi
+ *fill*         0x0000000000401903        0xd 
  .text          0x0000000000401910       0x72 /usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
                 0x0000000000401910                __libc_csu_init
                 0x0000000000401980                __libc_csu_fini
@@ -472,13 +472,13 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000      0xdc3
+.debug_info     0x0000000000000000      0xdb1
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000       0xdc main.o
- .debug_info    0x00000000000000dc      0x475 memory.o
- .debug_info    0x0000000000000551      0x426 course1.o
- .debug_info    0x0000000000000977      0x2ae stats.o
- .debug_info    0x0000000000000c25      0x19e data.o
+ .debug_info    0x00000000000000dc      0x463 memory.o
+ .debug_info    0x000000000000053f      0x426 course1.o
+ .debug_info    0x0000000000000965      0x2ae stats.o
+ .debug_info    0x0000000000000c13      0x19e data.o
 
 .debug_abbrev   0x0000000000000000      0x3e3
  *(.debug_abbrev)
@@ -488,13 +488,13 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
  .debug_abbrev  0x000000000000024c       0xc6 stats.o
  .debug_abbrev  0x0000000000000312       0xd1 data.o
 
-.debug_line     0x0000000000000000      0x519
+.debug_line     0x0000000000000000      0x509
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000       0x68 main.o
- .debug_line    0x0000000000000068      0x154 memory.o
- .debug_line    0x00000000000001bc      0x1bd course1.o
- .debug_line    0x0000000000000379       0xd2 stats.o
- .debug_line    0x000000000000044b       0xce data.o
+ .debug_line    0x0000000000000068      0x144 memory.o
+ .debug_line    0x00000000000001ac      0x1bd course1.o
+ .debug_line    0x0000000000000369       0xd2 stats.o
+ .debug_line    0x000000000000043b       0xce data.o
 
 .debug_frame
  *(.debug_frame)

@@ -52,7 +52,7 @@ void clear_all(char * ptr, unsigned int size){
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
     unsigned int i = 0;
    for (i=0; i<length; i++)
-    if (src+i==dst || dst+i==src) return NULL;
+    if ((src+i)==dst || (dst+i)==src) return NULL;
   
   
     for (int i = 0; i < length; i++) {
@@ -64,7 +64,7 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
 
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
 
-  if ((src + length)<= dst || src >= (dst + length)) {
+  if ((src + length)< dst || src > (dst + length)) {
       /* No overlap, use memcpy logic (copy forward) */
       while (length--)
       *dst++ = *src++;
@@ -97,12 +97,17 @@ uint8_t * my_memzero (uint8_t * src, size_t length) {
 
 uint8_t * my_reverse(uint8_t * src, size_t length) {
   
-  uint8_t tmp;
+  uint8_t  tmp;
   
-  for (int i = length - 1, j = 0;i >=0 && j<length; i--) {
-    tmp = *(src + i);
-    *(src + i) = *(src + j);
-    *(src + j) = tmp; 
+  int j  = length - 1;
+  int i  = 0;
+  
+  while (i < j) {
+    tmp = src[i];
+    src[i] = src[j];
+    src[j] = tmp;
+    i++;
+    j--;
   }
   
   return src;
