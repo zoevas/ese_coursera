@@ -43,6 +43,8 @@ int8_t test_data1() {
   
   #ifdef VERBOSE
   PRINTF("  Initial number: %d\n", num);
+  
+  
   PRINTF("  Final Decimal number: %d\n", value);
   #endif
   free_words( (uint32_t*)ptr );
@@ -68,8 +70,8 @@ int8_t test_data2() {
     return TEST_ERROR;
   }
 
-  digits = my_itoa( num, ptr, BASE_10);
-  value = my_atoi( ptr, digits, BASE_10);
+  digits = my_itoa( num, ptr, BASE_16);
+  value = my_atoi( ptr, digits, BASE_16);
   #ifdef VERBOSE
   PRINTF("  Initial Decimal number: %d\n", num);
   PRINTF("  Final Decimal number: %d\n", value);
@@ -130,7 +132,7 @@ int8_t test_memmove2() {
   uint8_t * ptra;
   uint8_t * ptrb;
 
-  PRINTF("test_memmove2() -OVERLAP END OF SRC BEGINNING OF DST\n");
+  PRINTF("\n test_memmove2() -OVERLAP END OF SRC BEGINNING OF DST\n");
   set = (uint8_t*) reserve_words(MEM_SET_SIZE_W);
 
   if (! set )
@@ -168,7 +170,7 @@ int8_t test_memmove3() {
   uint8_t * ptra;
   uint8_t * ptrb;
 
-  PRINTF("test_memove3() - OVERLAP END OF DEST BEGINNING OF SRC\n");
+  PRINTF("\n test_memove3() - OVERLAP END OF DEST BEGINNING OF SRC\n");
   set = (uint8_t*)reserve_words( MEM_SET_SIZE_W);
 
   if (! set ) 
@@ -187,17 +189,21 @@ int8_t test_memmove3() {
   print_array(set, MEM_SET_SIZE_B);
   my_memmove(ptra, ptrb, TEST_MEMMOVE_LENGTH);
   print_array(set, MEM_SET_SIZE_B);
+  
+  printf ("\nset[15]= %p\n",&set[15]);
+  printf ("\nset[23]= %p\n",&set[23]);
 
   for (i = 0; i < TEST_MEMMOVE_LENGTH; i++)
   {
     if (set[i] != (i + 8))
     {
+      printf("\nLOOP error set[%d] = %d, i + 8 = %d\n", i, set[i], i + 8);
       ret = TEST_ERROR;
     }
   }
 
 
-  free_words( (uint32_t*)set );
+  //free_words( (uint32_t*)set );
   return ret;
 
 }

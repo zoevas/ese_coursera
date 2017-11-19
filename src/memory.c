@@ -62,18 +62,32 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
     return dst;
 }
 
+//https://stackoverflow.com/questions/3572309/memmove-implementation-in-c/3572519#3572519 very useful
+//this is the only case starting at the end of src
+//2) <-----s----->                start at end of s
+//            <-----d----->
+//4)          <-----s----->       start at beginning of s
+//   <-----d----->
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
 
-  if ((src + length)< dst || src > (dst + length)) {
+  
+  printf ("\nsrc address = %p, dst address  = %p\n", src, dst);
+  
+  if ((src + length) <= dst || src > dst || src > (dst + length)) {
       /* No overlap, use memcpy logic (copy forward) */
       while (length--)
       *dst++ = *src++;
+      printf ("no overlap\n");
   } else {
     /* Overlap detected! Copy backward to fix */
     src = src + length - 1;
+    
     dst = dst + length - 1;
+    printf ("\nsrc address = %p, dst address  = %p, length = %d\n", src, dst,(int)length);
     while (length--)
       *dst-- = *src--;
+    
+     printf ("overlap\n");
   }
   return dst;
 }

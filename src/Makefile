@@ -40,7 +40,7 @@ LDFLAGS =  -Wl,-Map=$(BASENAME).map
 
 ifeq ($(PLATFORM),HOST)
 	CC = gcc
-	CPPFLAGS = -DHOST -DCOURSE1
+	CPPFLAGS = -DHOST -DCOURSE1 -DVERBOSE
 	# etc
 else
 	CC = arm-none-eabi-gcc
